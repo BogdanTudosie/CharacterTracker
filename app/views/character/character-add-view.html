@@ -1,0 +1,19 @@
+<!-- HTML view for Adding a character -->
+<div class="col-sm-8 col-sm-offset-2" ng-controller="AddCharacterController">
+    <div class="row">
+        <input class="form-control" placeholder="Character name" ng-model="newCharacter.name" />
+    </div>
+    <div class="row">
+        <textarea class="form-control" placeholder="You can write your description here" ng-model="newCharacter.description"></textarea>
+    </div>
+    <div class="row">
+        <input class="form-control" placeholder="What is your total experience" ng-model="newCharacter.totalExperience" />
+    </div>
+    <div class="row">
+        <input class="form-control" placeholder="How much experience do you have left?" ng-model="newCharacter.remainingExperience" />
+    </div>
+    <button class="btn btn-success" ng-click="addCharacter()">
+        <span class="glyphicon glyphicon-plus-sign">Submit</span>
+    </button>
+
+</div>

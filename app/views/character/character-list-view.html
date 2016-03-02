@@ -1,0 +1,44 @@
+<!-- View template for the character List -->
+
+<div class="col-sm-8 col-sm-offset-2" ng-controller="CharacterListController">
+
+    <button class="btn btn-success" ng-click="showAddForm()">
+        <span class="glyphicon glyphicon-plus"> New character </span>
+    </button>
+
+    <table class="table-hover table-responsive">
+        <thead>
+            <th>Name </th>
+            <th>Description</th>
+            <th>Total Experience</th>
+            <th>Unused Experience</th>
+            <th>What do i do with it?</th>
+        </thead>
+        <tbody>
+            <tr ng-repeat="character in characters">
+                <td>
+                    {{ character.name }}
+                </td>
+                <td>
+                    {{ character.description }}
+                </td>
+                <td>
+                    {{ character.totalExperience }}
+                </td>
+                <td>
+                    {{ character.remainingExperience }}
+                </td>
+                <td>
+                    <button class="btn btn-danger">
+                        <span class="glyph glyphicon-remove"></span>
+                    </button>
+                </td>
+                <td>
+                    <button class="btn btn-info">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

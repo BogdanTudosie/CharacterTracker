@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TimeWaste">
+<head>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="app/css/main.css"/>
+
+    <meta charset="UTF-8">
+    <title>Avatar Tracker</title>
+</head>
+<nav class="navbar navbar-default navbar-fixed-top" ng-controller="NavigationController">
+    <div class="container">
+        <div ng-show="!loggedIn">
+            <input type="text" ng-model="login.email" placeholder="E-mail">
+            <input type="password" ng-model="login.password" placeholder="Password">
+            <button ng-click="logUserIn();">Login</button>
+            <a ui-sref="signUp">Create an account</a>
+        </div>
+        <div ng-show="loggedIn">
+            <a ui-sref="listCharacters">Characters</a>
+            <a ui-sref="editProfile">Edit Profile</a>
+            <a ng-click="logOut();">Log out</a>
+        </div>
+    </div>
+</nav>
+<body>
+
+    <div ui-view></div>
+</body>
+
+<!-- Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+
+<!-- NG-File-Upload libraries -->
+<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+
+
+<!-- app.js - our Angular application -->
+<script src="app/app.js"></script>
+
+<!-- Controllers -->
+<script src="app/controllers/signup-controller.js"></script>
+<script src="app/controllers/navigation-controller.js"></script>
+<script src="app/controllers/edit-profile-controller.js"></script>
+<script src="app/controllers/character-list-controller.js"></script>
+<script src="app/controllers/character-add-controller.js"></script>
+<script src="app/controllers/main-controller.js"></script>
+</html>
