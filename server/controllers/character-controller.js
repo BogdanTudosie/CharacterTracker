@@ -33,7 +33,6 @@ module.exports.listCharacters = function(req, res) {
             console.log('Error occurred');
         } else {
             res.json(charactersData);
-            console.log(charactersData);
         }
     })
 }

@@ -11,7 +11,8 @@
 
             // Do I have any user Data?
             if(localStorage['User-Data']) {
-                console.log("We have user data stored");
+                $scope.userData = JSON.parse(localStorage.getItem('User-Data'));
+                $scope.ownerId = $scope.userData.id;
             }
             else {
                 console.log("Unable to find any user Data");
@@ -29,43 +30,25 @@
             /**
              * listAll - lists the characters for the current user in the database
              */
-            $scope.listAll = function() {
-
-                var ownerId = localStorage.getItem('User-Data')._id;
-                console.log(ownerId);
-
+            $scope.listAll = function(req, res) {
                 $http({
-                    url: '/api/characters/list',
+                    url: '/api/characters/list?ownerId='+$scope.ownerId,
                     method: 'GET',
-                    params: {
-                        owner: ownerId
-                    }
                 }).success(function(response){
+                    $scope.characters = response;
 
                 }).error(function(error){
                     if(error) {
                         console.log(error);
                     }
                 })
-
-                // OLD code do not delete it please
-
-                /*$http.get('api/characters/list', params: {owner: owner_id})
-                 .success(function(response){
-                 console.log(data);
-                 console.log("Something");
-                 })
-                 .error(function(error){
-                 console.log(error);
-                 })*/
-
             }
 
             /**
              * Update character
              */
             $scope.updateCurrentCharacter = function(req, res) {
-
+                $location.path('/edit-character');
             }
 
             /**

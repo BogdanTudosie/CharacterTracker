@@ -3,7 +3,7 @@
  */
 (function(){
     angular.module('TimeWaste')
-        .controller('AddCharacterController', ['$scope', '$state', '$http', function($scope, $state, $http){
+        .controller('AddCharacterController', ['$scope', '$state', '$location', '$http', function($scope, $state, $location, $http){
 
             // check if we have user Data
             if(localStorage['User-Data'] !== undefined) {
@@ -16,7 +16,7 @@
 
                 $http.post('api/characters/newcharacter', $scope.newCharacter)
                     .success(function(res){
-
+                        $location.path('/list-characters');
                     })
                     .error(function(err){
                         if(err) {

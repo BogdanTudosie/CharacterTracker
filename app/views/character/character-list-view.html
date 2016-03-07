@@ -1,12 +1,12 @@
 <!-- View template for the character List -->
 
-<div class="col-sm-8 col-sm-offset-2" ng-controller="CharacterListController">
+<div class="col-sm-8 col-sm-offset-2" ng-controller="CharacterListController" data-ng-init="listAll()">
 
     <button class="btn btn-success" ng-click="showAddForm()">
         <span class="glyphicon glyphicon-plus"> New character </span>
     </button>
 
-    <table class="table-hover table-responsive">
+    <table class="table table-striped">
         <thead>
             <th>Name </th>
             <th>Description</th>
@@ -17,25 +17,23 @@
         <tbody>
             <tr ng-repeat="character in characters">
                 <td>
-                    {{ character.name }}
+                     {{ character.name }}
                 </td>
                 <td>
-                    {{ character.description }}
+                     {{ character.description }}
                 </td>
                 <td>
-                    {{ character.totalExperience }}
+                     {{ character.totalExperience }}
                 </td>
                 <td>
-                    {{ character.remainingExperience }}
+                     {{ character.remainingExperience }}
                 </td>
                 <td>
                     <button class="btn btn-danger">
                         <span class="glyph glyphicon-remove"></span>
                     </button>
-                </td>
-                <td>
                     <button class="btn btn-info">
-                        <span class="glyphicon glyphicon-edit"></span>
+                        <span class="glyphicon glyphicon-edit" ng-click="updateCurrentCharacter()"></span>
                     </button>
                 </td>
             </tr>

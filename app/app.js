@@ -16,7 +16,7 @@
                   url: "/edit-profile",
                   templateUrl: "app/views/profile/edit-profile.html",
                   controller: "EditProfileController"
-          }).state('listCharacters', {
+          }).state('listAll', {
               url: "/list-characters",
               templateUrl: "app/views/character/character-list-view.html",
               controller: "CharacterListController"
@@ -24,6 +24,10 @@
               url: "/add-character",
               templateUrl: "app/views/character/character-add-view.html",
               controller: "AddCharacterController"
+          }).state('editCharacter',{
+              url: "/edit-character",
+              templateUrl: "app/views/character/character-edit-view.html",
+              controller: "CharacterEditController"
           })
        })
 }());
