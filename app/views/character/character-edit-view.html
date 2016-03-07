@@ -15,4 +15,10 @@
     <div class="row">
         <input class="form-control" ng-model="currentCharacter.remainingExperience" placeholder="{{ currentCharacter.remainingExperience }}" />
     </div>
+    <button class="btn btn-success" ng-click="saveCharacter()">
+        <span class="glyphicon glyphicon-plus-sign"> Submit</span>
+    </button>
+    <button class="btn btn-danger" ng-click="back()">
+        <span class="glyphicon glyphicon-remove-sign"> Return to list</span>
+    </button>
 </div>

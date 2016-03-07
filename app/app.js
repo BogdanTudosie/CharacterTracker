@@ -30,4 +30,5 @@
               controller: "CharacterEditController"
           })
        })
+
 }());

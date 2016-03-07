@@ -47,14 +47,17 @@
             /**
              * Update character
              */
-            $scope.updateCurrentCharacter = function(req, res) {
+            $scope.updateCurrentCharacter = function(characterInfo) {
+
                 $location.path('/edit-character');
+
             }
+
 
             /**
              * Delete character
              */
-            $scope.deleteSelectedCharacter = function(req, res){
+            $scope.deleteCurrentCharacter = function(req, res){
 
             }
 
