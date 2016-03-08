@@ -3,7 +3,8 @@
  */
 (function(){
     angular.module('TimeWaste')
-        .controller('NavigationController',['$scope', '$state', '$http','$location', function($scope, $state, $http, $location){
+        .controller('NavigationController',['$scope', '$state', '$http', '$location',
+                    function($scope, $state, $http, $location){
 
             if(localStorage['User-Data']) {
                 $scope.loggedIn = true;
@@ -15,7 +16,9 @@
                 $http.post('api/user/login', $scope.login).success(function(response){
                     localStorage.setItem('User-Data', JSON.stringify(response));
                     $scope.loggedIn = true;
+                    $location.path('/');
                 }).error(function(error){
+                    $location.path('/');
                     console.log(error);
                 });
             }

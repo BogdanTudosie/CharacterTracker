@@ -7,8 +7,8 @@
 
 (function(){
     angular.module('TimeWaste')
-        .controller('CharacterListController',['$scope', '$state', '$http','$location' /*, 'CharacterData'*/,
-                    function($scope, $state, $http, $location /*,CharacterData*/){
+        .controller('CharacterListController',['$scope', '$state', '$http', '$location',
+                    function($scope, $state, $http, $location){
 
             // Do I have any user Data?
             if(localStorage['User-Data']) {
@@ -48,12 +48,18 @@
             /**
              * Update character
              */
-            $scope.updateCurrentCharacter = function(req, res) {
+            $scope.updateCurrentCharacter = function(character) {
 
-                /*CharacterData.setName($scope.character.name);
-                CharacterData.setDescription($scope.character.description);
-                CharacterData.setTotalExperience($scope.character.totalExperience);
-                CharacterData.setRemainingExperience($scope.character.remainingExperience);*/
+                // -- assign here all the variables taken from the character parameter
+                // and send them via service to the Edit Controller
+                console.log("Character name: " + character.name + " Total XP: " +
+                                character.totalExperience + " Remaining XP: " + character.remainingExperience);
+
+
+                /*CharacterData.setName(character.name);
+                CharacterData.setDescription(character.description);
+                CharacterData.setTotalExperience(character.totalExperience);
+                CharacterData.setRemainingExperience(character.remainingExperience);*/
 
                 $location.path('/edit-character');
             }
@@ -65,8 +71,6 @@
             $scope.deleteCurrentCharacter = function(character){
 
                 var characterId = character._id;
-                console.log('Character ID: ' + characterId);
-
                 var index = $scope.characters.indexOf(character);
                 console.log('Item found at: ' + index);
 

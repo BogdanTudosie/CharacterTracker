@@ -1,6 +1,6 @@
-<div class="col-sm-8 col-sm-offset-2">
+<div class="col-sm-8 col-sm-offset-2" ng-controller="EditProfileController">
     <div class="row">
-        <div class="button upload-button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+        <div class="btn btn-link button upload-button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
              ngf-accept="'image/*'" ngf-max-size="20MB" ngf-min-height="100"
              ngf-resize="{width: 100, height: 100}">Select</div>
     </div>
@@ -12,4 +12,8 @@
     <div class="row">
          <textarea class="form-control" ng-model="user.bio"></textarea>
     </div>
+    <hr>
+    <button class="btn btn-success" ng-click="saveProfile()">
+        Save your changes
+    </button>
 </div>

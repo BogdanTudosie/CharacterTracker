@@ -37,5 +37,9 @@
                         })
                     }
                 }
+
+                $scope.saveProfile = function() {
+
+                }
             }]);
     }());

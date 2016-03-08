@@ -1,13 +1,39 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
-        <div class="row">
-            <strong>E-mail: </strong>
-            <input type="text" ng-model="newUser.email" class="form-control"   />
-        </div>
-        <div class="row">
-            <strong>Password: </strong>
-            <input type="password" ng-model="newUser.password" class="form-control" />
-        </div>
-        <button ng-click="createUser()">Submit</button>
+        <form name="signupForm" class="form-horizontal" required>
+            <div class="row">
+                <strong>E-mail: </strong>
+                <input type="text" ng-model="newUser.email" class="form-control" name="email"  required/>
+                <div ng-messages="signupForm.email.$error">
+                    <div ng-message="required">E-mail field is required.</div>
+                </div>
+            </div>
+            <div class="row">
+                <strong>Username: </strong>
+                <input type="text" ng-model="newUser.username" class="form-control" name="username" required/>
+                <div ng-messages="signupForm.username.$error">
+                    <div ng-message="required">User name field is required.</div>
+                </div>
+            </div>
+            <div class="row">
+                <strong>Password: </strong>
+                <input type="password" ng-model="newUser.password" class="form-control" name="password" required/>
+                <div ng-messages="signupForm.password.$error">
+                    <div ng-message="required">Password is required.</div>
+                </div>
+            </div>
+            <div class="row">
+                <strong>Confirm password: </strong>
+                <input type="password" class="form-control" name="confirm" required/>
+                <div ng-messages="signupForm.confirm.$error">
+                    <div ng-message="required">Password confirmation is required.</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <button class="btn btn-success" ng-click="createUser()">Submit</button>
+                <button class="btn btn-danger" ng-click="cancelSignup()">Cancel</button>
+            </div>
+        </form>
     </div>
 </div>
