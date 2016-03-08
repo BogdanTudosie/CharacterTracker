@@ -12,10 +12,14 @@
              url: "/signup",
              templateUrl: "app/views/signup/signup.html",
              controller: "SignupCtrl"
+          }).state('/navigation', {
+              url:'',
+              templateUrl: '',
+              controller: 'NavigationController'
           }).state('editProfile', {
-                  url: "/edit-profile",
-                  templateUrl: "app/views/profile/edit-profile.html",
-                  controller: "EditProfileController"
+              url: "/edit-profile",
+              templateUrl: "app/views/profile/edit-profile.html",
+              controller: "EditProfileController"
           }).state('listAll', {
               url: "/list-characters",
               templateUrl: "app/views/character/character-list-view.html",
@@ -30,5 +34,4 @@
               controller: "CharacterEditController"
           })
        })
-
 }());

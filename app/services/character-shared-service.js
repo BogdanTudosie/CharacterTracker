@@ -1,21 +1,47 @@
 /**
  * Created by Taru on 7.3.2016.
  */
-(function() {
-    angular.module('TimeWaste',[])
-        .factory(characterSharedService, function($rootScope){
+var app = angular.module('TimeWaste',[]);
 
-            var characterSharedService = {};
+app.factory('CharacterData', function() {
+    var data = {
+        Name: '',
+        Description: '',
+        TotalExperience: 0,
+        RemainingExperience: 0
+    }
 
-            characterSharedService.prepForPublish = function(character) {
-                this.sharedCharacter = character;
-                this.publishCharacter();
-            }
+    return {
+        getName: function() {
+            return data.Name;
+        },
 
-            characterSharedService.publishCharacter = function() {
-                $rootScope.$broadcast('handlePublish');
-            }
+        setName: function(name) {
+            data.Name = name;
+        },
 
-            return characterSharedService;
-        })
-}());
+        getDescription: function() {
+            return data.Description;
+        },
+
+        setDescription: function(description) {
+            data.Description = description;
+        },
+
+        getTotalExperience: function() {
+            return data.TotalExperience;
+        },
+
+        setTotalExperience: function(totalxp) {
+            data.TotalExperience = totalxp;
+        },
+
+        getRemainingExperience: function() {
+            return data.RemainingExperience;
+        },
+
+        setRemainingExperience: function(exp) {
+            data.RemainingExperience = exp;
+        }
+    };
+});

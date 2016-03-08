@@ -52,5 +52,12 @@ module.exports.updateCharacter = function(req, res) {
  * @param res
  */
 module.exports.deleteCharacter = function(req, res) {
-
+    Character.findByIdAndRemove(req.params.id, req.body, function(err, post){
+        if(err) {
+            console.log(err);
+        }
+        else {
+            res.json(post);
+        }
+    })
 }

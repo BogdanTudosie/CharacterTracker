@@ -45,6 +45,7 @@ app.post('/api/profile/editPhoto', multipartMiddleware, profileController.update
 //Character operations
 app.get('/api/characters/list', characterController.listCharacters);
 app.post('/api/characters/newcharacter', characterController.addCharacter);
+app.delete('/api/characters/delete/:id', characterController.deleteCharacter);
 
 app.listen(3000, function() {
     console.log('Listening on 3000');

@@ -7,7 +7,8 @@
 
 (function(){
     angular.module('TimeWaste')
-        .controller('CharacterListController',['$scope', '$state', '$http','$location', function($scope, $state, $http, $location){
+        .controller('CharacterListController',['$scope', '$state', '$http','$location' /*, 'CharacterData'*/,
+                    function($scope, $state, $http, $location /*,CharacterData*/){
 
             // Do I have any user Data?
             if(localStorage['User-Data']) {
@@ -47,17 +48,38 @@
             /**
              * Update character
              */
-            $scope.updateCurrentCharacter = function(characterInfo) {
+            $scope.updateCurrentCharacter = function(req, res) {
+
+                /*CharacterData.setName($scope.character.name);
+                CharacterData.setDescription($scope.character.description);
+                CharacterData.setTotalExperience($scope.character.totalExperience);
+                CharacterData.setRemainingExperience($scope.character.remainingExperience);*/
 
                 $location.path('/edit-character');
-
             }
 
 
             /**
              * Delete character
              */
-            $scope.deleteCurrentCharacter = function(req, res){
+            $scope.deleteCurrentCharacter = function(character){
+
+                var characterId = character._id;
+                console.log('Character ID: ' + characterId);
+
+                var index = $scope.characters.indexOf(character);
+                console.log('Item found at: ' + index);
+
+                // do an HTTP Delete
+                $http({
+                    url: '/api/characters/delete/'+characterId,
+                    method: 'DELETE'
+                }).success(function(response){
+                    $state.reload();
+                    console.log('Delete successful');
+                }).error(function(error){
+                    console.log(error);
+                })
 
             }
 
