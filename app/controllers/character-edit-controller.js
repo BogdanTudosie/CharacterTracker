@@ -2,18 +2,20 @@
  * Created by Taru on 7.3.2016.
  */
 (function(){
-    angular.module('TimeWaste')
-        .controller('CharacterEditController', ['$scope', '$state', '$http', '$location',
-                    function ($scope, $state, $http, $location){
+
+    var app = angular.module('TimeWaste', []);
+
+    app.controller('CharacterEditController', ['$scope', '$state', '$http', '$location', 'CharacterData',
+                    function ($scope, $state, $http, $location, CharacterData){
 
             /**
              *
              */
             $scope.readCharacter = function() {
-                /* $scope.currentCharacter.name = CharacterData.getName();
+                $scope.currentCharacter.name = CharacterData.getName();
                 $scope.currentCharacter.description = CharacterData.getDescription();
                 $scope.currentCharacter.totalExperience = CharacterData.getTotalExperience();
-                $scope.currentCharacter.remainingExperience = CharacterData.getRemainingExperience();*/
+                $scope.currentCharacter.remainingExperience = CharacterData.getRemainingExperience();
             }
 
 

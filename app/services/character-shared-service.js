@@ -1,7 +1,7 @@
 /**
  * Created by Taru on 7.3.2016.
  */
-var app = angular.module('TimeWaste',[]);
+var app = angular.module('TimeWaste');
 
 app.factory('CharacterData', function() {
     var data = {

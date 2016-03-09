@@ -2,8 +2,9 @@
  * Created by Taru on 26.2.2016.
  */
 (function(){
-    angular.module('TimeWaste')
-        .controller('NavigationController',['$scope', '$state', '$http', '$location',
+    var app = angular.module('TimeWaste');
+
+    app.controller('NavigationController',['$scope', '$state', '$http', '$location',
                     function($scope, $state, $http, $location){
 
             if(localStorage['User-Data']) {

@@ -6,9 +6,10 @@
  */
 
 (function(){
-    angular.module('TimeWaste')
-        .controller('CharacterListController',['$scope', '$state', '$http', '$location',
-                    function($scope, $state, $http, $location){
+    var app = angular.module('TimeWaste', []);
+
+    app.controller('CharacterListController',['$scope', '$state', '$http', '$location', 'CharacterData',
+                    function($scope, $state, $http, $location, CharacterData){
 
             // Do I have any user Data?
             if(localStorage['User-Data']) {
@@ -56,10 +57,10 @@
                                 character.totalExperience + " Remaining XP: " + character.remainingExperience);
 
 
-                /*CharacterData.setName(character.name);
+                CharacterData.setName(character.name);
                 CharacterData.setDescription(character.description);
                 CharacterData.setTotalExperience(character.totalExperience);
-                CharacterData.setRemainingExperience(character.remainingExperience);*/
+                CharacterData.setRemainingExperience(character.remainingExperience);
 
                 $location.path('/edit-character');
             }

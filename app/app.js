@@ -12,10 +12,6 @@
              url: "/signup",
              templateUrl: "app/views/signup/signup.html",
              controller: "SignupCtrl"
-          }).state("/navigation", {
-              url: "/navigation",
-              templateUrl: "",
-              controller: "NavigationController"
           }).state("editProfile", {
               url: "/edit-profile",
               templateUrl: "app/views/profile/edit-profile.html",

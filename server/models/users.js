@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 module.exports = mongoose.model('User', {
+
     email: {
         type: String,
         required: true
@@ -20,5 +21,9 @@ module.exports = mongoose.model('User', {
     image: {
         type: String
     },
-    characters: [{ type: Schema.Types.ObjectId, ref: 'Character'}]
+    characters: [{ type: Schema.Types.ObjectId, ref: 'Character'}],
+    friends: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    role: {
+        type: String
+    }
 });
